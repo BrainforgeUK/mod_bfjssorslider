@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="2.5" client="site" method="upgrade">
+  <name>jssor Slider</name>
+  <creationDate>April 2015</creationDate>
+  <author>Jonathan Brain</author>
+  <authorEmail>brainforge@btinternet.com</authorEmail>
+  <authorUrl>http://www.brainforge.co.uk</authorUrl>
+  <copyright>Copyright 2015 Jonathan Brain. All rights reserved.</copyright>
+  <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+  <version>0.0.3a</version>
+  <description>Displays a slider using the jssor jQuery library.</description>
+
+	<files>
+		<filename module="mod_bfjssorslider">mod_bfjssorslider.php</filename>
+    <filename>Jssor.Slider.FullPack/MIT-LICENSE.txt</filename>
+    <filename>Jssor.Slider.FullPack/readme.txt</filename>
+    <filename>Jssor.Slider.FullPack/js/jssor.js</filename>
+    <filename>Jssor.Slider.FullPack/js/jssor.slider.js</filename>
+    <filename>Jssor.Slider.FullPack/js/jssor.slider.mini.js</filename>
+		<folder>js</folder>
+		<folder>tmpl</folder>
+		<filename>index.html</filename>
+    <filename>mod_bfjssorslider.xml</filename>
+	</files>
+
+  <config>
+    <fields name="params">
+
+    <fieldset name="basic">
+			<field
+				name="slidername" type="text"
+        default="slider1_container"
+				label="Slider name"
+				description="Enter the ID of the slider enclosing div element." />
+
+			<field
+				name="width" type="number"
+        default="960"
+				label="Slider width"
+				description="Enter width of slider in pixels." />
+
+			<field
+				name="height" type="number"
+        default="240"
+				label="Slider height"
+				description="Enter height of slider in pixels." />
+
+      <field type="spacer" hr="true" />
+
+			<field name="imagecache"
+				type="radio"
+				class="btn-group btn-group-yesno"
+				default="0"
+				label="Image cache"
+				description="Enable to resize image, if necessary, and store in cache. Requires bfsigplus plugin"
+			>
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+
+			<field name="imagecrop"
+				type="radio"
+				class="btn-group btn-group-yesno"
+				default="0"
+				label="Cached image crop"
+				description="Enable to crop image when stored in cache."
+			>
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+
+			<field name="imagequality"
+				type="integer" first="5" last="100" step="5"
+        default="85"
+				label="Cached image quality"
+				description="Set quality (%) of cached image." />
+
+      <field type="spacer" hr="true" />
+
+      <field name="list_images"
+      	type="Repeatable"
+      	icon="list"
+      	description="Enter the absolute, or relative, URLs of the images to be displayed."
+      	label="Images"
+      	default="">
+      	<fields name="params">
+      	<fieldset hidden="true" name="list_images_modal" repeat="true">
+          <field name="images" type="media"
+                 label="Image"
+                 preview="false"
+                 directory="" />
+    			<field
+    				name="titles" type="text"
+            default=""
+    				label="Title"
+    				description="Enter an optional title for each image."/>
+        </fieldset>
+        </fields>
+      </field>
+
+			<field
+				name="imagefolder" type="text"
+        default=""
+				label="Image folder"
+				description="Enter name of folder (e.g. images/myslider) containing any additional images not in above image list." />
+
+      <field type="spacer" hr="true" />
+
+			<field name="sliderautostart"
+				type="radio"
+				class="btn-group btn-group-yesno"
+				default="1"
+				label="Auto start"
+				description="Slider starts automatically when page loads."
+			>
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+
+			<field name="slideronofftickbox"
+				type="radio"
+				class="btn-group btn-group-yesno"
+				default="0"
+				label="On/Off tick box"
+				description="Enable to show a slider on/off tick box to the user."
+			>
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+    </fieldset>
+
+    <fieldset name="jssorslider" label="Jssor Slider Options"
+      description="See http://www.jssor.com/development/reference-options.html">
+			<field
+				name="transitionduration" type="text"
+        default="1200"
+				label="Transition duration"
+				description="Enter image transition duration (in ms)." />
+
+			<field
+				name="transitionopacity" type="text"
+        default="2"
+				label="Transition opacity"
+				description="Enter image transition opacity." />
+
+			<field name="responsive"
+				type="radio"
+				class="btn-group btn-group-yesno"
+				default="0"
+				label="Responsive"
+				description="Enable to make slider responsive for different screen sizes."
+			>
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+
+			<field name="dragorientation"
+				type="list"
+				default="0"
+				label="Drag orientation"
+				description="Sets slider action mode when user hovers over an image."
+			>
+				<option value="0">JOFF</option>
+				<option value="1">Horizontal</option>
+				<option value="2">Vertical</option>
+			</field>
+
+			<field name="pauseonhover"
+				type="list"
+				default="0"
+				label="Pause on hover"
+				description="Sets slider action mode when user hovers over an image."
+			>
+				<option value="0">JNONE</option>
+				<option value="1">Pause for desktop</option>
+			</field>
+
+			<field name="debug"
+				type="radio"
+				class="btn-group btn-group-yesno"
+				default="0"
+				label="Debug"
+				description="Enable to debug the jssor Javascript libraries."
+			>
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+    </fieldset>
+
+    <fieldset name="advanced">
+      <field name="modulelayout" type="modulelayout"
+             label="JFIELD_ALT_LAYOUT_LABEL"
+             description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+			<field
+				name="moduleclass_sfx"
+				type="textarea" rows="1"
+				label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+				description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+    </fieldset>
+
+    </fields>
+  </config>
+
+</extension>
