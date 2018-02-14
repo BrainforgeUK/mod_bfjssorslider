@@ -201,4 +201,7 @@
     </fields>
   </config>
 
+  <updateservers>
+    <server type="extension" priority="1" name="jssor Slider by BrainforgeUK">https://brainforge.co.uk/media/com_bfupdater/mod_bfjssorslider.xml</server>
+  </updateservers>
 </extension>
