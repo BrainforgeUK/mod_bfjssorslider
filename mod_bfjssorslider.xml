@@ -7,7 +7,7 @@
   <authorUrl>http://www.brainforge.co.uk</authorUrl>
   <copyright>Copyright 2015 Jonathan Brain. All rights reserved.</copyright>
   <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-  <version>3.0.0</version>
+  <version>3.0.1</version>
   <description>Displays a slider using the jssor jQuery library.</description>
 
 	<files>
@@ -202,6 +202,8 @@
   </config>
 
   <updateservers>
-    <server type="extension" priority="1" name="jssor Slider by BrainforgeUK">https://brainforge.co.uk/media/com_bfupdater/mod_bfjssorslider.xml</server>
+    <server type="extension" priority="1" name="jssor Slider by BrainforgeUK">
+			https://brainforge.co.uk/component/bfupdater?element=mod_bfjssorslider.xml
+		</server>
   </updateservers>
 </extension>
